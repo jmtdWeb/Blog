@@ -1,0 +1,78 @@
+﻿@charset "utf-8";
+
+/*整体定义*/
+body {font-size:12px; color:#737373; font-family:'Microsoft YaHei',Arial;/* background: #2b2b2b;*/}
+*{margin:0; padding:0; border:0; font-style:normal; -webkit-text-size-adjust: none; -webkit-tap-highlight-color:transparent; list-style:none;}
+a {color:#333333; text-decoration:none;}
+a:hover{color:#b10606; text-decoration:none;}
+.clear{clear:both; height:0px; overflow:hidden;}
+.left {float:left;}
+.right{float:right;}
+.pointer{pointer-events:none;/*穿透*/}
+input{-webkit-appearance:none;/*去除input默认样式*/}
+html{-webkit-tap-highlight-color: transparent/*取出input点击之后会有一个黑色的过度*/}
+
+/*头部定义*/
+header{background-image: url(../images/bg.jpg); background-size: 100% 100%; background-repeat: no-repeat; padding-top: 150px; box-sizing: border-box;}
+header img{margin: 0 auto; border-radius: 50%; display: block;}
+header h1{text-align: center; color: #fff; padding-top: 15px;}
+header h2{text-align: center; color: #fff; padding: 15px 0; font-size: 14px; font-weight: inherit;}
+header span{margin: 0 auto; text-align: center; color: #fff; display: block; width: 50px; height: 50px; line-height: 50px; background: #000; opacity: .5; border-radius: 50%; font-size: 30px; cursor: pointer;}
+header .header{width: 600px; overflow: hidden; padding: 20px; box-sizing: border-box; border-radius: 5px; margin: 0 auto 10px auto; background: rgba(255,255,255,.6);}
+header .header dl{float: left; width: 355px; font-size: 14px; line-height: 180%; color: #000;}
+header .header ul{width: 160px; float: right; border-left: #fff 1px solid; padding-left: 20px;}
+header .header ul li{height: 40px; background-image: url(../images/header.jpg); border-radius: 2px; margin-bottom: 10px;}
+header .header ul li a{display: block; height: 40px;}
+header .header ul li:nth-child(2){background-position: 0 -40px;}
+header .header ul li:nth-child(3){background-position: 0 -80px;}
+header .header ul li:nth-child(4){margin-bottom: 0; background-position: 0 -120px;}
+
+
+/*内容定义*/
+#content{}
+
+/*尾巴定义*/
+#footer{}
+
+
+/*响应式*/
+@media screen and (min-width:600px){
+	.box{border:1px solid #F00; width:100px; height:100px;}
+}
+@media all and (max-width:480px){
+	
+}
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/4s */
+
+}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */
+
+}
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 */
+
+}
+
+.up{
+	animation-name:myUp;
+	animation-duration:1.5s;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-play-state:running;
+	animation-fill-mode:forwards; 
+	-webkit-animation-name:myUp;
+	-webkit-animation-duration:1.5s;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-play-state:running;
+	-webkit-animation-fill-mode:forwards;
+}
+@keyframes myUp{
+	0%  {transform:translateY(0); opacity: 1;}
+	50% {transform:translateY(20px); opacity: .7;}
+	100%{transform:translateY(0); opacity: 1;}
+}
+@-webkit-keyframes myUp{
+	0%  {transform:translateY(0); opacity: 1;}
+	50% {transform:translateY(20px); opacity: .7;}
+	100%{transform:translateY(0); opacity: 1;}
+}
