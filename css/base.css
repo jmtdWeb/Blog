@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*整体定义*/
 body {
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
   font-family: 'Microsoft YaHei',Arial;
   min-width: 1200px; }
@@ -41,6 +41,7 @@ html {
 
 /*头部定义*/
 header {
+  height: 790px;
   background-image: url(../images/bg.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -99,7 +100,17 @@ header {
         background-image: url(../images/header.jpg);
         border-radius: 2px;
         display: block;
-        margin-bottom: 10px; }
+        margin-bottom: 10px;
+        position: relative; }
+        header .header ul li img {
+          display: none;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 160px; }
+        header .header ul li:hover img {
+          display: block;
+          border-radius: 0; }
       header .header ul li a {
         display: block;
         height: 40px; }
@@ -111,10 +122,11 @@ header {
         background-position: 0 -120px;
         margin-bottom: 0; }
 
+/*技能*/
 #skill {
   margin: 0 auto;
   width: 1200px;
-  padding: 20px 0; }
+  padding: 50px 0; }
   #skill .skillTop {
     overflow: hidden;
     padding: 0 10px 20px 10px; }
@@ -240,7 +252,85 @@ header {
       #skill .skillBottom dl:nth-child(3) dd span {
         background: #6b0e17; }
 
+/*学校*/
+#education {
+  min-width: 1200px;
+  background: url(../images/education.jpg);
+  background-size: 100% 100%;
+  padding: 50px 0;
+  line-height: 180%; }
+  #education img {
+    margin: 0 auto;
+    border-radius: 50%;
+    display: block; }
+  #education h1, #education div {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff; }
+  #education h1 {
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: inherit; }
+
+/*经历*/
+#company {
+  margin: 0 auto;
+  width: 1200px;
+  padding: 25px 0; }
+  #company li {
+    padding: 25px 0 25px 200px;
+    position: relative;
+    line-height: 180%;
+    border-bottom: #e8e8e8 1px solid; }
+    #company li span {
+      position: absolute;
+      left: 0;
+      top: 25px;
+      padding-bottom: 3px;
+      border-bottom: #3bad72 2px solid;
+      display: inline-block; }
+    #company li h1 {
+      font-size: 16px; }
+    #company li i {
+      color: #666; }
+    #company li img {
+      position: absolute;
+      right: 0;
+      top: 25px; }
+
+/*案例*/
+#case {
+  background: #f0f0f0; }
+  #case ul {
+    margin: 0 auto;
+    width: 1200px;
+    overflow: hidden;
+    padding: 50px 0; }
+    #case ul li {
+      width: 20%;
+      padding: 20px 50px;
+      box-sizing: border-box;
+      float: left; }
+      #case ul li a {
+        display: block;
+        overflow: hidden;
+        border-radius: 50%;
+        display: block; }
+      #case ul li img {
+        display: block;
+        width: 100%; }
+      #case ul li:hover {
+        opacity: .8; }
+
 /*尾巴定义*/
+#footer {
+  background: #1a1f22;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  padding: 15px 0; }
+
 /*响应式*/
 @media screen and (min-width: 600px) {
   .box {
@@ -253,6 +343,7 @@ header {
   /* 兼容iphone5 */ }
 @media (device-height: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   /* 兼容iphone6 */ }
+/*动画*/
 .up {
   animation-name: myUp;
   animation-duration: 1.5s;
