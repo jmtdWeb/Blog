@@ -299,6 +299,15 @@ header {
       right: 0;
       top: 25px; }
 
+/*兴趣*/
+#interest {
+  margin: 0 auto;
+  width: 1200px;
+  padding: 10px 0; }
+  #interest img {
+    display: block;
+    width: 100%; }
+
 /*案例*/
 #case {
   background: #f0f0f0; }
@@ -332,17 +341,6 @@ header {
   padding: 15px 0; }
 
 /*响应式*/
-@media screen and (min-width: 600px) {
-  .box {
-    border: 1px solid #F00;
-    width: 100px;
-    height: 100px; } }
-@media (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-  /* 兼容iphone4/4s */ }
-@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  /* 兼容iphone5 */ }
-@media (device-height: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-  /* 兼容iphone6 */ }
 /*动画*/
 .up {
   animation-name: myUp;
@@ -378,5 +376,38 @@ header {
   100% {
     transform: translateY(0);
     opacity: 1; } }
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  opacity: 0; }
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; } }
 
 /*# sourceMappingURL=base.css.map */

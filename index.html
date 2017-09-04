@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/base.css" />
-<title>测试</title>
+<title>测试fadeInUp</title>
 <meta name="keywords" content="关键字,关键字" />
 <meta name="description" content="描述" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, telephone=no" name="viewport">
 <meta content="telephone=no" name="format-detection" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
-<script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -30,13 +29,13 @@
 </header>
 <div id="skill">
 	<div class="skillTop">
-		<div class="nav">
+		<div class="nav swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 			<h1>麦考林</h1>
 			<ul><li></li><li></li><li></li><li></li><li></li></ul>
 			<a href="#">maikaolin</a>
 			<a href="#">maikaolin</a>
 		</div>
-		<div class="content">
+		<div class="content swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 			<ul>
 				<li class="this"><span></span><p>维您清逸粉</p></li>
 				<li><span></span><p>维您清逸粉</p></li>
@@ -51,7 +50,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="skillBottom">
+	<div class="skillBottom swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 		<dl>
 			<dt>
 				<h1>Photoshop</h1>
@@ -75,12 +74,12 @@
 		</dl>
 	</div>
 </div>
-<div id="education">
+<div id="education" class="swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 	<img src="images/educationPic.jpg" width="100">
 	<h1>麦考林</h1>
 	<div>麦考林全称上海麦考林国际邮购有限公司（Mecox Lane）成立于1996年1月8日，它是中国第一家获得政府批准的从事邮购业务的三资企业，公司业务覆盖全国。优秀的产品质量、富有竞争力的价格、优异的客户服务使它树立了直复式营销行业领导者的地位。</div>
 </div>
-<div id="company">
+<div id="company" class="swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 	<ul>
 		<li>
 			<span>2017</span>
@@ -108,7 +107,8 @@
 		</li>
 	</ul>
 </div>
-<div id="case">
+<div id="interest" class="swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s"><img src="images/Interest.jpg"></div>
+<div id="case" class="swAction" swAction-effect="fadeInUp" swAction-duration="1s" swAction-delay="0.1s">
 	<ul>
 		<li><a href="#"><img src="images/educationPic.jpg"></a></li>
 		<li><a href="#"><img src="images/educationPic.jpg"></a></li>
@@ -123,9 +123,26 @@
 	</ul>
 </div>
 <div id="footer">麦考林</div>
+<script src="js/jquery.min.js"></script>
 <script>
-	/*var height = $(window).height();
-	$('header').height(height);*/
+	window.onscroll = ()=> swAction();
+    let swAction = () => {
+    	var height = $(document).scrollTop() + $(window).height();
+	    $('.swAction').each(function() {
+	        let top = $(this).offset().top;
+	        if (top < height) {
+	            let effect   = $(this).attr('swAction-effect');
+	            let duration = $(this).attr('swAction-duration');
+	            let delay    = $(this).attr('swAction-delay');
+	            $(this).addClass(effect).css({'animation-duration':duration,'animation-delay':delay});
+	        }
+	    });
+    }
+	swAction();
+/*	$("#cgotop").click(function(){ 
+ $('body,html').animate({ scrollTop: 0 }, 100); 
+ return false; 
+});*/
 </script>
 </body>
 </html>
