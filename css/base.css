@@ -310,7 +310,8 @@ header {
 
 /*案例*/
 #case {
-  background: #f0f0f0; }
+  background: #f0f0f0;
+  position: relative; }
   #case ul {
     margin: 0 auto;
     width: 1200px;
