@@ -341,8 +341,8 @@ header {
       #case ul li img {
         display: block;
         width: 100%; }
-      #case ul li:hover {
-        opacity: .8; }
+        #case ul li img:hover {
+          opacity: .8; }
 
 /*尾巴定义*/
 #footer {
