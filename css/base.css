@@ -338,11 +338,11 @@ header {
         overflow: hidden;
         border-radius: 50%;
         display: block; }
+        #case ul li a:hover {
+          opacity: .8; }
       #case ul li img {
         display: block;
         width: 100%; }
-        #case ul li img:hover {
-          opacity: .8; }
 
 /*尾巴定义*/
 #footer {
