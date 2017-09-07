@@ -52,12 +52,12 @@ swAction.prototype = {
 	 * removeClass
 	 */
 	removeClass : function (ele, cls){
-		if (this.hasClass(elem, cls)) {
-		    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, '') + ' ';
+		if (this.hasClass(ele, cls)) {
+		    var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
 		    while (newClass.indexOf(' ' + cls + ' ') >= 0) {
 		    	newClass = newClass.replace(' ' + cls + ' ', ' ');
 		    }
-		    elem.className = newClass.replace(/^\s+|\s+$/g, '');
+		    ele.className = newClass.replace(/^\s+|\s+$/g, '');
 		}
 	},
 	/*
@@ -91,17 +91,16 @@ swAction.prototype = {
     	var height = this.getScrollTop() + this.getClientHeight();
     	var name   = document.getElementsByClassName(this.id);
     	for(var i=0; i<name.length; i++) {
-			//var top = name[index].offsetTop;//offsetTop相对定位之后，就计算到达有定位的父级距离	
+			//this.addClass(name[i], 'opacity');
 			var top = this.offTop(name[i]);
-			//console.log(top);
 	        if (top < height) {
-	            var className = name[i];
-	            var effect    = className.getAttribute('swAction-effect');
-	            var duration  = className.getAttribute('swAction-duration');
-	            var delay     = className.getAttribute('swAction-delay');
-	            var nameArr   = className.getAttribute('class');
-	            this.addClass(className, effect);
-	            className.style = 'animation-duration:'+duration+'; animation-delay:'+delay; 
+	            //this.removeClass(name[i], 'opacity');
+	            var effect    = name[i].getAttribute('swAction-effect');
+	            var duration  = name[i].getAttribute('swAction-duration');
+	            var delay     = name[i].getAttribute('swAction-delay');
+	            var nameArr   = name[i].getAttribute('class');
+	            this.addClass(name[i], effect);
+	            name[i].style = 'animation-duration:'+duration+'; animation-delay:'+delay; 
 	        }
 		}
     }

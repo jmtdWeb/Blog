@@ -39,6 +39,9 @@ input {
 html {
   -webkit-tap-highlight-color: transparent; }
 
+.opacity {
+  opacity: 0; }
+
 /*头部定义*/
 header {
   height: 790px;
@@ -332,7 +335,8 @@ header {
       width: 20%;
       padding: 20px 50px;
       box-sizing: border-box;
-      float: left; }
+      float: left;
+      opacity: 0; }
       #case ul li a {
         display: block;
         overflow: hidden;
