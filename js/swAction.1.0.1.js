@@ -37,7 +37,7 @@ swAction.prototype = {
 	 */
     hasClass : function (ele, cls){
 		cls = cls || '';
-		if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
+		if (cls.replace(/\s/g, '').length == 0) return false;
 		return new RegExp(' ' + cls + ' ').test(' ' + ele.className + ' ');
 	},
     /*
@@ -61,8 +61,6 @@ swAction.prototype = {
 		}
 	},
 	/*
-	 * 计算div到达顶部距离
-	 * 不准，jq的.offset().top也不准
 	 * 进入a，a里面执行b，b返回，然后a并没有返回
 	 * 所以，console.log(a());不会有任何东西
 	 * function a(){
@@ -85,22 +83,39 @@ swAction.prototype = {
 		
 	},
 	/*
+	 * 判断是否默认为透明
+	 */
+	opacity : function(i,duration,delay,opacity){
+		var name  = document.getElementsByClassName(this.id);
+		var times = delay*1000;
+		setTimeout( function(){ 
+	        //console.log(i);
+	        name[i].style = 'animation-duration:'+duration+'s; animation-delay:'+delay+'s; opacity:1';
+	        name[i].setAttribute('swAction-data','1');
+	    }, times );
+	},
+	/*
 	 * 处理事件
 	 */
     action : function(){
     	var height = this.getScrollTop() + this.getClientHeight();
     	var name   = document.getElementsByClassName(this.id);
     	for(var i=0; i<name.length; i++) {
-			//this.addClass(name[i], 'opacity');
 			var top = this.offTop(name[i]);
-	        if (top < height) {
-	            //this.removeClass(name[i], 'opacity');
+	        if (top < height) { 
 	            var effect    = name[i].getAttribute('swAction-effect');
 	            var duration  = name[i].getAttribute('swAction-duration');
 	            var delay     = name[i].getAttribute('swAction-delay');
+	            var opacity   = name[i].getAttribute('swAction-opacity');
+	            var data      = name[i].getAttribute('swAction-data');
 	            var nameArr   = name[i].getAttribute('class');
-	            this.addClass(name[i], effect);
-	            name[i].style = 'animation-duration:'+duration+'; animation-delay:'+delay; 
+	            if(data != 1){
+		            this.addClass(name[i], effect);
+		            if(opacity){
+		            	name[i].style = 'opacity:'+opacity;
+		            }
+		            this.opacity(i,duration,delay,opacity);
+	            }
 	        }
 		}
     }
